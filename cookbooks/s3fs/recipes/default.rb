@@ -48,21 +48,21 @@ if platform?("ubuntu")
 	end
 end
 
-remote_file "/tmp/fuse-2.8.4.tar.gz" do
-  source "http://iweb.dl.sourceforge.net/project/fuse/fuse-2.X/2.8.4/fuse-2.8.4.tar.gz"
+remote_file "/tmp/v1.78.tar.gz" do
+  source "https://github.com/s3fs-fuse/s3fs-fuse/archive/v1.78.tar.gz"
   mode 0644
 end
 
-remote_file "/tmp/s3fs-1.61.tar.gz" do
-  source "http://s3fs.googlecode.com/files/s3fs-1.61.tar.gz"
+remote_file "/tmp/fuse-2.9.3.tar.gz" do
+  source "http://downloads.sourceforge.net/project/fuse/fuse-2.X/2.9.3/fuse-2.9.3.tar.gz"
   mode 0644
 end
 
 bash "install fuse" do
   cwd "/tmp"
   code <<-EOH
-  tar zxvf fuse-2.8.4.tar.gz
-  cd fuse-2.8.4
+  tar zxvf fuse-2.9.3.tar.gz
+  cd fuse-2.9.3
   ./configure --prefix=/usr
   make
   make install
@@ -73,9 +73,10 @@ end
 bash "install s3fs" do
   cwd "/tmp"
   code <<-EOH
-  tar zxvf s3fs-1.61.tar.gz
-  cd s3fs-1.61
+  tar zxvf v1.78.tar.gz
+  cd s3fs-fuse-1.78
   export PKG_CONFIG_PATH=/usr/lib/pkgconfig
+  ./autogen.sh
   ./configure
   make
   make install
