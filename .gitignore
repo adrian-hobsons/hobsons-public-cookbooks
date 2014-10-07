@@ -16,3 +16,8 @@ cookbooks/.DS_Store
 .DS_Store
 
 cookbooks/.DS_Store
+
+# Emacs backups
+*~
+[#]*[#]
+.\#*
