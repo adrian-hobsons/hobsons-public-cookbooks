@@ -54,7 +54,8 @@ remote_file "/tmp/v1.78.tar.gz" do
 end
 
 remote_file "/tmp/fuse-2.9.3.tar.gz" do
-  source "http://downloads.sourceforge.net/project/fuse/fuse-2.X/2.9.3/fuse-2.9.3.tar.gz"
+  # source "http://downloads.sourceforge.net/project/fuse/fuse-2.X/2.9.3/fuse-2.9.3.tar.gz"
+  source "https://github.com/libfuse/libfuse/releases/fuse-2.9.3.tar.gz"
   mode 0644
 end
 
